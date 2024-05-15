@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  plusoft-db:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=plusoft
+      - POSTGRESQL_PASSWORD=12345
+      - POSTGRESQL_DATABASE=plusoftDb
