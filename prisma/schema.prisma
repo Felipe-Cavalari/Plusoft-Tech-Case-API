@@ -8,13 +8,10 @@ datasource db {
 }
 
 model User {
-  id           String        @id @default(uuid())
+  id           String @id @default(uuid())
   name         String
-  email        String        @unique
+  email        String @unique
   passwordHash String
-  Interviewed  Interviewed[]
-
-  @@map("users")
 }
 
 model Interviewed {
@@ -26,9 +23,6 @@ model Interviewed {
   description      String
   cv               Bytes?
   status           String
-
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
 
   @@map("interviewed")
 }

@@ -7,7 +7,7 @@ export async function deleteUser(req: Request, res: Response) {
     id: z.string(),
   })
 
-  const { id } = updateBodySchema.parse(req.body)
+  const { id } = updateBodySchema.parse(req.params)
 
   try {
     await prisma.user.delete({
