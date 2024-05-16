@@ -1,6 +1,21 @@
 # Fiz um APP para RH focado em uma lista de entrevistados com suas descrições e contatos
 
 
+## Técnologias:
+- Utilizei como framework de nodeJS o express que é o mais usado no mercado atualmente
+- Programei em TypeScript pois prefiro o desenvolvimento mais inteligente e limpo que ele traz
+- Utilizei o prisma como ORM pois nunca havia utilizado e quis me desafiar
+
+## Ideia:
+ A ideia inicial do app era cada usuário ser responsável pelo seus intrevistados porém não tive tempo de implementar lógica
+ de JWT e secret_key então atualmente funciona com o crud básico de get, post, put, delete
+
+ 
+
+<br>
+
+
+
 ### Para iniciar o app rodar o arquivo docker compose
 ```
 docker compose run
