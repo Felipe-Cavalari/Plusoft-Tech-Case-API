@@ -1,16 +1,23 @@
 // iniciando a instancia do fastify
-// import fastify from "fastify"
+// import fastify from 'fastify'
 import express from 'express'
-import { PrismaClient } from '@prisma/client'
+import {
+  alterUserRoute,
+  deleteUserRoute,
+  getAllUsersRoute,
+  getUserByIdRoute,
+  registerRoute,
+} from './router/register-route'
 
 export const app = express()
 
-const prisma = new PrismaClient()
+app.use(express.json())
 
-prisma.user.create({
-  data: {
-    name: 'Felipe Cavalari',
-    email: 'Felipe@gmail.com',
-    password_hash: 'sdfsdfdfsdf',
-  },
-})
+// todas as rotas de users
+app.use(registerRoute)
+app.use(getAllUsersRoute)
+app.use(getUserByIdRoute)
+app.use(alterUserRoute)
+app.use(deleteUserRoute)
+
+// todas as rotas de interviewed

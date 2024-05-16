@@ -8,30 +8,27 @@ datasource db {
 }
 
 model User {
-  id            String @id @default(uuid())
-  name          String
-  email         String @unique
-  password_hash String
+  id           String        @id @default(uuid())
+  name         String
+  email        String        @unique
+  passwordHash String
+  Interviewed  Interviewed[]
 
   @@map("users")
 }
 
 model Interviewed {
-  id               String @id @default(uuid())
+  id               String   @id @default(uuid())
+  createdAt        DateTime @default(now())
   interviewedName  String
-  interviewedEmail String
+  interviewedEmail String   @unique
+  interviewedPhone String?  @unique
   description      String
-  status           String @default("in progress")
+  cv               Bytes?
+  status           String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 
   @@map("interviewed")
-}
-
-model Transaction {
-  id          String    @id @default(uuid())
-  title       String
-  description String?
-  date        DateTime?
-  amount      Int
-
-  @@map("transactions")
 }
